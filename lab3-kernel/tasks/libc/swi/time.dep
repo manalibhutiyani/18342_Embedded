@@ -1,0 +1,5 @@
+/home/helenzhu/18342/lab3-support/tasks/libc/swi/time.o:  \
+ /home/helenzhu/18342/lab3-support/tasks/libc/swi/time.S \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/asm.h
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/asm.h:

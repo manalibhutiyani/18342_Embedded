@@ -1,0 +1,11 @@
+/home/helenzhu/18342/lab3-support/tasks/libc/swi/read.o:  \
+ /home/helenzhu/18342/lab3-support/tasks/libc/swi/read.S \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/asm.h \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/bits/swi.h \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/bits/errno.h
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/asm.h:
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/bits/swi.h:
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/bits/errno.h:

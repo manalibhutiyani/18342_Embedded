@@ -1,0 +1,5 @@
+/home/helenzhu/18342/lab3-support/tasks/libc/swi/sleep.o:  \
+ /home/helenzhu/18342/lab3-support/tasks/libc/swi/sleep.S \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/asm.h
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/asm.h:

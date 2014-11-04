@@ -1,0 +1,11 @@
+/home/helenzhu/18342/lab3-support/kernel/arm/psr.o:  \
+ /home/helenzhu/18342/lab3-support/kernel/arm/psr.c \
+  /home/helenzhu/18342/lab3-support/kernel/include/types.h \
+  /home/helenzhu/18342/lab3-support/kernel/include/arm/psr.h \
+  /home/helenzhu/18342/lab3-support/kernel/include/inline.h
+
+/home/helenzhu/18342/lab3-support/kernel/include/types.h:
+
+/home/helenzhu/18342/lab3-support/kernel/include/arm/psr.h:
+
+/home/helenzhu/18342/lab3-support/kernel/include/inline.h:

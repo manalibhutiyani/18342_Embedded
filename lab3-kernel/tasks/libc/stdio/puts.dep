@@ -1,0 +1,23 @@
+/home/helenzhu/18342/lab3-support/tasks/libc/stdio/puts.o:  \
+ /home/helenzhu/18342/lab3-support/tasks/libc/stdio/puts.c \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/stdio.h \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/stdarg.h \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/sys/types.h \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/bits/types.h \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/string.h \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/unistd.h \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/bits/fileno.h
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/stdio.h:
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/stdarg.h:
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/sys/types.h:
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/bits/types.h:
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/string.h:
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/unistd.h:
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/bits/fileno.h:

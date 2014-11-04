@@ -1,0 +1,5 @@
+/home/helenzhu/18342/lab3-support/kernel/start.o:  \
+ /home/helenzhu/18342/lab3-support/kernel/start.S \
+  /home/helenzhu/18342/lab3-support/kernel/include/asm.h
+
+/home/helenzhu/18342/lab3-support/kernel/include/asm.h:

@@ -1,0 +1,5 @@
+/home/helenzhu/18342/lab3-support/tasks/libc/stdlib/rand.o:  \
+ /home/helenzhu/18342/lab3-support/tasks/libc/stdlib/rand.c \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/stdlib.h
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/stdlib.h:

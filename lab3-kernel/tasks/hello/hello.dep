@@ -1,0 +1,14 @@
+/home/helenzhu/18342/lab3-support/tasks/hello/hello.o:  \
+ /home/helenzhu/18342/lab3-support/tasks/hello/hello.c \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/unistd.h \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/bits/fileno.h \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/sys/types.h \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/bits/types.h
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/unistd.h:
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/bits/fileno.h:
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/sys/types.h:
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/bits/types.h:

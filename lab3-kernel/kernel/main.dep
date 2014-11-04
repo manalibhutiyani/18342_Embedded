@@ -1,0 +1,35 @@
+/home/helenzhu/18342/lab3-support/kernel/main.o:  \
+ /home/helenzhu/18342/lab3-support/kernel/main.c \
+  /home/helenzhu/18342/lab3-support/uboot/include/exports.h \
+  /home/helenzhu/18342/lab3-support/kernel/include/types.h \
+  /home/helenzhu/18342/lab3-support/kernel/include/stdarg.h \
+  /home/helenzhu/18342/lab3-support/uboot/include/_exports.h \
+  /home/helenzhu/18342/lab3-support/kernel/include/arm/psr.h \
+  /home/helenzhu/18342/lab3-support/kernel/include/inline.h \
+  /home/helenzhu/18342/lab3-support/kernel/include/arm/exception.h \
+  /home/helenzhu/18342/lab3-support/kernel/include/arm/interrupt.h \
+  /home/helenzhu/18342/lab3-support/kernel/include/arm/timer.h \
+  /home/helenzhu/18342/lab3-support/kernel/include/bits/fileno.h \
+  /home/helenzhu/18342/lab3-support/kernel/include/bits/errno.h
+
+/home/helenzhu/18342/lab3-support/uboot/include/exports.h:
+
+/home/helenzhu/18342/lab3-support/kernel/include/types.h:
+
+/home/helenzhu/18342/lab3-support/kernel/include/stdarg.h:
+
+/home/helenzhu/18342/lab3-support/uboot/include/_exports.h:
+
+/home/helenzhu/18342/lab3-support/kernel/include/arm/psr.h:
+
+/home/helenzhu/18342/lab3-support/kernel/include/inline.h:
+
+/home/helenzhu/18342/lab3-support/kernel/include/arm/exception.h:
+
+/home/helenzhu/18342/lab3-support/kernel/include/arm/interrupt.h:
+
+/home/helenzhu/18342/lab3-support/kernel/include/arm/timer.h:
+
+/home/helenzhu/18342/lab3-support/kernel/include/bits/fileno.h:
+
+/home/helenzhu/18342/lab3-support/kernel/include/bits/errno.h:

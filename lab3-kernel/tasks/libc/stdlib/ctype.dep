@@ -1,0 +1,8 @@
+/home/helenzhu/18342/lab3-support/tasks/libc/stdlib/ctype.o:  \
+ /home/helenzhu/18342/lab3-support/tasks/libc/stdlib/ctype.c \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/ctype.h \
+  /home/helenzhu/18342/lab3-support/tasks/libc/include/inline.h
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/ctype.h:
+
+/home/helenzhu/18342/lab3-support/tasks/libc/include/inline.h:

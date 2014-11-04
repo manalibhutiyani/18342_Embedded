@@ -1,0 +1,11 @@
+/home/helenzhu/18342/lab3-support/kernel/arm/reg.o:  \
+ /home/helenzhu/18342/lab3-support/kernel/arm/reg.c \
+  /home/helenzhu/18342/lab3-support/kernel/include/types.h \
+  /home/helenzhu/18342/lab3-support/kernel/include/arm/reg.h \
+  /home/helenzhu/18342/lab3-support/kernel/include/inline.h
+
+/home/helenzhu/18342/lab3-support/kernel/include/types.h:
+
+/home/helenzhu/18342/lab3-support/kernel/include/arm/reg.h:
+
+/home/helenzhu/18342/lab3-support/kernel/include/inline.h:
