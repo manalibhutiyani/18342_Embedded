@@ -32,15 +32,26 @@ int kmain(int argc, char** argv, uint32_t table)
 	int status=0; 
     	size_t storeOld[2], handler_address;
 	savesp=0;
+	uint32_t icmr_val, iclr_val, oier_val, osmr_val, oscr_val, ossr_val;
+
+	// save memory-mapped register value
+	icmr_val = reg_read(INT_ICMR_ADDR);
+	iclr_val = reg_read(INT_ICLR_ADDR);
+	oier_val = reg_read(OSTMR_OIER_ADDR);
+	osmr_val = reg_read(OSTMR_OSMR_ADDR(0));
+	oscr_val = reg_read(OSTMR_OSCR_ADDR);
+	ossr_val = reg_read(OSTMR_OSSR_ADDR);
 
 	/* Set up interrupt controller */
-	*INT_ICMR_ADDR |= (1 << INT_OSTMR_0);  // set OSTMR0 bit in ICMR to 1 to unmask OSTMR0
-	*INT_ICLR_ADDR &= (~(1 << INT_OSTMR_0));  // set OSTMR0 bit in ICLR to 0, handle Timer0 with IRQ
+	reg_set(INT_ICMR_ADDR, (1 << INT_OSTMR_0));  // set OSTMR0 bit in ICMR to 1 to unmask OSTMR0
+	reg_write(INT_ICLR_ADDR, 0);  // set OSTMR0 bit in ICLR to 0, handle Timer0 with IRQ
 
 	/* Timer setup */
-	*OSTMR_OIER_ADDR &= 0; // mask all interrup at first
-	*OSTMR_OIER_ADDR |= OSTMR_OIER_E0; // enable interrupt of timer 0
-	*OSTMR_OSMR_ADDR(0) = OSTMR_FREQ / 100; // 10 ms after 36864 clock cycles
+	reg_write(OSTMR_OIER_ADDR, 0); // mask all interrup at first
+	reg_set(OSTMR_OIER_ADDR, OSTMR_OIER_E0); // enable interrupt of timer 0
+	reg_write(OSTMR_OSMR_ADDR(0), OSTMR_FREQ / 100); // 10 ms after 36864 clock cycles
+	reg_write(OSTMR_OSCR_ADDR, 0);
+	reg_write(OSTMR_OSSR_ADDR, 0);
 
 	 // install my handler
     	handler_address= install_handler(storeOld,SYSCALLS);
@@ -55,7 +66,7 @@ int kmain(int argc, char** argv, uint32_t table)
     
     	// check the arguments
     	// printf("kernel:argc:%d,argv:%s,%s,%s\n",argc,argv[0],argv[1],argv[2]) ;
- 	
+
     	// switch to user mode
     	status=switch_mode(argc, argv);
    	//printf("switch over:%d\n",status);
@@ -66,6 +77,14 @@ int kmain(int argc, char** argv, uint32_t table)
 
 	// restore IRQ original handler
 	restore_handler(IRQ_handler_address, storeOldIRQ);
+
+	// restore memory-mapped register value
+	reg_write(INT_ICMR_ADDR, icmr_val);
+	reg_write(INT_ICLR_ADDR, iclr_val);
+	reg_write(OSTMR_OIER_ADDR, oier_val);
+	reg_write(OSTMR_OSMR_ADDR(0), osmr_val);
+	reg_write(OSTMR_OSCR_ADDR, oscr_val);
+	reg_write(OSTMR_OSSR_ADDR, ossr_val);
     
     return status;
 }
