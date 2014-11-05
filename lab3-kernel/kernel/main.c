@@ -15,10 +15,13 @@ uint32_t global_data;
 #define IRQ_NUM 0x18
 
 extern void S_Handler();
+//extern void IRQ_Handler();
 extern int switch_mode(int argc, char *argv[]);
 extern void exit(int status);
 
 size_t savesp;
+size_t irq_sp;
+size_t saver8;
 size_t install_handler(size_t *storeUboot,size_t num);
 void restore_handler(size_t handler_addrs, size_t *storeUboot);
 
@@ -30,29 +33,22 @@ int kmain(int argc, char** argv, uint32_t table)
 	
 	/* Add your code here */
 	int status=0; 
-    	size_t storeOld[2], handler_address;
+    	size_t storeSYS[2], handler_address_sys;
+	//size_t storeIRQ[2], handler_address_IRQ;
 	savesp=0;
+	saver8=0;
+	irq_sp=0;
 
-	/* Set up interrupt controller */
-	*INT_ICMR_ADDR |= (1 << INT_OSTMR_0);  // set OSTMR0 bit in ICMR to 1 to unmask OSTMR0
-	*INT_ICLR_ADDR &= (~(1 << INT_OSTMR_0));  // set OSTMR0 bit in ICLR to 0, handle Timer0 with IRQ
-
-	/* Timer setup */
-	*OSTMR_OIER_ADDR &= 0; // mask all interrup at first
-	*OSTMR_OIER_ADDR |= OSTMR_OIER_E0; // enable interrupt of timer 0
-	*OSTMR_OSMR_ADDR(0) = OSTMR_FREQ / 100; // 10 ms after 36864 clock cycles
-
-	 // install my handler
-    	handler_address= install_handler(storeOld,SYSCALLS);
-	if (handler_address == INS_ERROR )
+	 // install syscalls handler
+    	handler_address_sys= install_handler(storeSYS,SYSCALLS);
+	if (handler_address_sys == INS_ERROR )
        		return INS_ERROR;
-
-	size_t storeOldIRQ[2], IRQ_handler_address;
-	saveIRQsp = 0;
-	IRQ_handler_address = install_handler(storeOldIRQ, IRQ_NUM);
-	if (IRQ_handler_address == INS_ERROR)
-		return INS_ERROR;
     
+// install IRQ handler
+/*    	handler_address_IRQ= install_handler(storeIRQ,IRQ_NUM);
+	if (handler_address_IRQ == INS_ERROR )
+       		return INS_ERROR;
+    */
     	// check the arguments
     	// printf("kernel:argc:%d,argv:%s,%s,%s\n",argc,argv[0],argv[1],argv[2]) ;
  	
@@ -61,11 +57,9 @@ int kmain(int argc, char** argv, uint32_t table)
    	//printf("switch over:%d\n",status);
    	
     	// restore original handler
-    	restore_handler(handler_address,storeOld);
+    	restore_handler(handler_address_sys,storeSYS);
+//	restore_handler(handler_address_IRQ,storeIRQ);
     	//puts("retore over!\n");
-
-	// restore IRQ original handler
-	restore_handler(IRQ_handler_address, storeOldIRQ);
     
     return status;
 }
@@ -74,7 +68,7 @@ int kmain(int argc, char** argv, uint32_t table)
 
 // install my handler
 size_t install_handler(size_t *storeUboot, size_t num){
-    size_t *addr= (size_t *)num;
+    size_t *addr= (size_t *)num;//(size_t *)0x08;
     size_t instruction = *(addr);
     size_t signs = (instruction >> 23) &1;
     size_t offset;
@@ -104,11 +98,16 @@ size_t install_handler(size_t *storeUboot, size_t num){
     // set my handler
     // ldr pc, [pc, #-4]
     * ((size_t *) handler_addr) = 0xe51ff004;
-    if (num == SYSCALLS)
-        * ((size_t *) (handler_addr + 4)) = (size_t) &S_Handler;
-    if (num == IRQ_NUM)
-        * ((size_t *) (handler_addr + 4)) = (size_t) &IRQ_Handler;
-    
+	switch (num){    
+	case SYSCALLS:
+		* ((size_t *) (handler_addr + 4)) = (size_t) &S_Handler;
+	break;
+	case IRQ_NUM:
+		//* ((size_t *) (handler_addr + 4)) = (size_t) &IRQ_Handler;
+	break;
+
+ 
+}
     return handler_addr;
 }
 

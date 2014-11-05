@@ -13,6 +13,11 @@ S_Handler:
 	stmfd	sp!, {r0-r12, lr} 	@ store user's gp registers
 	mrs	r2, spsr                @ get SPSR into gp registers
 	str	r2, [sp, #56]           @ store SPSR above gp registers
+
+	@ restore r8
+	ldr r2,=saver8
+	ldr r8,[r2]
+
 	mov 	r1, sp              	@ pointer to parameters on stack
 	ldr	r0, [lr, #-4]           @ extract the SWI number
 	bic	r0,r0,#0xff000000       @ get SWI # by bit-masking

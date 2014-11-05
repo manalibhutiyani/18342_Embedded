@@ -19,6 +19,10 @@ switch_mode:
         ldr r2, =savesp @save old sp to savesp
         str sp, [r2]
 	
+	@ store r8
+	ldr r2,=saver8
+	str r8,[r2]
+	
         @ Switch to user mode with FIQs masked
         @mrs r2, cpsr
         bic r3, r3, #0x8f
