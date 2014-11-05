@@ -10,15 +10,20 @@
 switch_mode:
 
         @ save supervisor mode
+	sub sp,sp,#8
         stmfd sp!,{r1-r12,lr}
+	mrs r2, spsr
+	str r2, [sp, #52]
+	mrs r3, cpsr
+	str r3, [sp, #56]
         ldr r2, =savesp @save old sp to savesp
         str sp, [r2]
 	
-        @ Switch to user mode with IRQs and FIQs masked
-        mrs r2, cpsr
-        bic r2, r2, #0x0f
-        orr r2, r2, #0xd0
-        msr cpsr, r2
+        @ Switch to user mode with FIQs masked
+        @mrs r2, cpsr
+        bic r3, r3, #0x8f
+        orr r3, r3, #0x50
+        msr cpsr, r3
         
         @ Setup a full descending user mode stack
         ldr sp, =0xa3000000
