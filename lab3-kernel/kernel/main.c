@@ -9,6 +9,7 @@
 #include <bits/errno.h>
 
 uint32_t global_data;
+volatile uint32_t global_time = 0;
 
 #define INS_ERROR 0x0badc0de
 #define SYSCALLS 0x08
@@ -49,7 +50,7 @@ int kmain(int argc, char** argv, uint32_t table)
 	/* Timer setup */
 	reg_write(OSTMR_OIER_ADDR, 0); // mask all interrup at first
 	reg_set(OSTMR_OIER_ADDR, OSTMR_OIER_E0); // enable interrupt of timer 0
-	reg_write(OSTMR_OSMR_ADDR(0), OSTMR_FREQ / 100); // 10 ms after 36864 clock cycles
+	reg_write(OSTMR_OSMR_ADDR(0), OSTMR_FREQ / OSTMR_DIVISOR); // 10 ms after 36864 clock cycles
 	reg_write(OSTMR_OSCR_ADDR, 0);
 	reg_write(OSTMR_OSSR_ADDR, 0);
 

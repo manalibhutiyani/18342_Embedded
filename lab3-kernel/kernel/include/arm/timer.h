@@ -35,6 +35,8 @@
 #define OSTMR_OIER_E3         0x00000008   /* Enable match 3 */
 
 #define OSTMR_FREQ            3686400      /* Oscillator frequency in hz */
+#define OSTMR_DIVISOR	      100          /* divide each second with 100, to achive 10ms */
+#define TIMER_INTERVAL	      10	   /* time interval of 10ms */
 
 #ifndef ASSEMBLER
 
